@@ -47,8 +47,7 @@
     color: #fff;
 }
 
-/* КНОПКА */
-.thank-btn {
+.section1-btn {
     background-color: var(--button-color);
     color: #fff;
     border-radius: 15px;
@@ -57,7 +56,7 @@
     transition: 0.3s;
 }
 
-.thank-btn:hover {
+.section1-btn:hover {
     background-color: var(--button-hover-color);
     color: #fff;
 }
@@ -71,4 +70,63 @@
     font-size: 20px;
     line-height: 25px;
     color: #fff;
+}
+
+.section-2 {
+    background-color: var(--hintergrund-color);
+    padding-top: 76px;
+    padding-bottom: 150px;
+}
+
+.section2-title {
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 54px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-2-infos {
+    display: flex;
+    align-items: center;
+}
+
+.section-2-text h4 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 70px;
+}
+
+.section-2-text p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 19px;
+}
+
+.section-2-text p:nth-of-type(2) {
+    margin-bottom: 70px;
+}
+
+.hero-images-wrapper {
+    max-width: 550px;
+    width: 100%;
+    position: relative;
+    margin-left: auto;
+}
+
+.img-big {
+    width: 450px;
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.img-small {
+    width: 306px;
+    height: auto;
+    bottom: -74px;
+    left: -92px;
+    max-width: 100%;
+    border-radius: 10px;
 }
