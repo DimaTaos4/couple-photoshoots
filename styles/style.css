@@ -369,6 +369,10 @@
     .creative-showcase-content p {
         font-size: 1rem;
     }
+
+    .section2-title {
+        line-height: 48px;
+    }
 }
 
 @media (max-width: 576px) {
