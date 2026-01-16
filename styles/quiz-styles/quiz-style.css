@@ -12,6 +12,7 @@
     text-decoration: none;
 }
 
+
 .quiz p {
     font-weight: 500;
     font-size: 22px;
@@ -38,7 +39,12 @@
     cursor: pointer;
     text-align: center;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
 }
+
 
 .option:hover {
     transform: translateY(-6px);
@@ -46,9 +52,12 @@
 
 .option img {
     width: 100%;
-    height: auto;
-    border-radius: 4px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
 }
+
 
 .option button {
     font-weight: 500;
@@ -75,7 +84,6 @@
 .legal-privacy {
     padding: 20px 0;
     font-size: 14px;
-    /* margin-top: 4rem !important; */
 }
 
 .legal-privacy a {
@@ -151,10 +159,6 @@
         font-size: 38px;
     }
 
-    .option img {
-        max-width: 250px;
-    }
-
     .option button {
         font-size: 20px;
         padding: 18px;
@@ -162,6 +166,13 @@
 
     .legal-privacy a {
         font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .option img {
+        aspect-ratio: 1 / 1;
     }
 }
 
