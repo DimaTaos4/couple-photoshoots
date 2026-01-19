@@ -56,26 +56,75 @@
     max-width: 557px;
 }
 
-/* inputs + select */
-.form-group input,
+/* ===== INPUTS + SELECT (как в первом) ===== */
+.form-group input:not([type="checkbox"]),
 .form-group select {
     width: 100%;
-    padding: 16px 18px;
+    height: 58px;
+    padding: 0 18px;
     font-size: 18px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    font-weight: 400;
+    color: #000;
+    border-radius: 15px;
+    border: 1px solid #000;
+    background-color: transparent;
+
+    outline: none;
+    box-shadow: none;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    transition: border-color 0.25s ease;
 }
 
+/* placeholder */
+.form-group input::placeholder {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000;
+}
+
+/* focus */
 .form-group input:focus,
 .form-group select:focus {
-    outline: none;
     border-color: var(--button-color);
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
 }
 
-/* checkbox */
+/* ===== SELECT ARROW (ТОЛЬКО select) ===== */
+.form-group:has(select) {
+    position: relative;
+}
+
+.form-group select {
+    padding-right: 48px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000;
+}
+
+
+
+.form-group:has(select)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+}
+
+/* ===== CHECKBOX ===== */
 .form-checkbox {
     display: flex;
     align-items: center;
@@ -87,21 +136,24 @@
 .form-checkbox input {
     width: 18px;
     height: 18px;
+    accent-color: var(--button-color);
 }
 
-/* submit */
+/* ===== BUTTON ===== */
 .btn-submit {
     width: 100%;
     max-width: 320px;
     margin-top: 32px;
     padding: 18px 0;
+
     background: var(--button-color);
-    border-radius: 14px;
     border: none;
     color: #fff;
+    border-radius: 40px;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
+
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -110,41 +162,44 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== RIGHT BLOCK ===== */
+/* ===== RIGHT BLOCK (БЕЗ КАРТОЧКИ) ===== */
 .gutsch-right-block {
-    max-width: 420px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    max-width: 549px;
+    padding: 0;
+    background: none;
+    box-shadow: none;
 }
 
 .gutsch-right-block img {
     width: 100%;
-    height: auto;
-    max-height: 480px;
-    border-radius: 16px;
-    margin-bottom: 20px;
+    height: 437px;
+    object-fit: cover;
+    margin-bottom: 28px;
+    border-radius: 30px;
 }
 
 .gutsch-right-block p:first-of-type {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 12px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
 }
 
 .gutsch-right-block h5 {
     font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 28px;
+    line-height: 34px;
+    margin-top: 19px;
+    margin-bottom: 24px;
 }
 
 .gutsch-right-block p {
-    font-size: 16px;
-    line-height: 24px;
-    color: #333;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000;
 }
 
+/* ===== LINKS ===== */
 .datenschutz {
     text-decoration: underline;
     transition: 0.3s;
@@ -154,7 +209,7 @@
     color: var(--button-color);
 }
 
-/* ===== Responsive ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 991px) {
     .gut-section-infos {
         flex-direction: column;
@@ -163,16 +218,55 @@
 
     .gutsch-right-block {
         max-width: 100%;
-        display: flex;
-        flex-direction: column;
         align-items: center;
     }
 
-
     .gutsch-right-block img {
         width: 70%;
-        border-radius: 16px;
-        margin-bottom: 20px;
-        max-height: none;
+        height: auto;
+    }
+
+    .gutschein-section {
+        background-color: var(--hintergrund-color);
+        padding: 80px 0 40px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .gutsch-left-block h6 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .gutsch-left-block p {
+        font-size: 18px;
+    }
+
+    .gutsch-right-block p:first-of-type {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .gutsch-right-block h5 {
+        font-size: 22px;
+    }
+
+    .gutsch-right-block p {
+        font-size: 18px;
+    }
+
+    .form-group input:not([type="checkbox"]),
+    .form-group select {
+        height: 56px;
+        font-size: 16px;
+    }
+
+    .form-group input::placeholder {
+        font-size: 16px;
+    }
+
+    .btn-submit {
+        font-size: 18px;
     }
 }
